@@ -29,3 +29,29 @@ if cv2.waitKey(1) == 13: break
 plt.close()
 cam.release()
 cv2.destroyAllWindows()
+
+
+説明；
+cv2.VideoCapture(0) で VideoCapture型のオブジェクトを取得します。カメラが1台だけしか接続されていない場合には0を入れる。
+while文の中での_.img = cam.read()でカメラの映像を画像として繰り返し読み込みimgに逐一保存する。
+x軸にはwhile文が繰り替えす毎に１が足されるiを入れ、y軸にはimgの画像をグレースケールにしその輝度の平均値を入れる。そしてそれらの座標をフレーム毎にプロットし表示する。
+エンターキーを押すと終了する。
+
+使い方；
+python3の実行環境を用意する。
+コマンドプロンプトで
+conda update conda
+conda update --all
+conda install opencv
+pip install opencv-python
+をそれぞれ実行する。
+その後、上記のプログラムをテキストに貼り付け、名前.pyで保存。python3の実行環境を用意してpython 名前.pyで実行。
+実行されると二つのウィンドウが開き一つはカメラの映像。もう一つはグラフが表示される。
+
+参考文献；
+https://note.mu/pomta_trd/n/n15b1d992f5ca
+リアルタイムのプロットと表示の仕方がわからなかったため上から１番目のコードを参考かつ引用した。
+https://water2litter.net/gin/?p=1757
+モジュールcv2を使ってカラー画像からグレースケールへの変更の仕方がわからなかったため上から一番目のコードを参考にした。
+https://news.mynavi.jp/article/zeropython-35/
+ｃｖ２によるカメラの起動や読み込みや表示の仕方が分からなかったため一番上のコードを引用。
