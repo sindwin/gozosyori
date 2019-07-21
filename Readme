@@ -1,1 +1,31 @@
-eadaddadadaaadfadd
+import cv2
+import matplotlib.pyplot as plt
+
+cam = cv2.VideoCapture(0)
+i = 0
+j = 0
+x = []
+y = []
+plt.ion()
+
+plt.title('SimpleGraph')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.ylim(0,255)
+plt.grid()
+
+while True:
+_, img = cam.read()
+img2 = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+i= i+1
+j = img2.mean()
+x.append(i)
+y.append(j)
+plt.plot(x,y,color='blue')
+plt.draw()
+cv2.imshow('PUSH ENTER KEY', img)
+if cv2.waitKey(1) == 13: break
+
+plt.close()
+cam.release()
+cv2.destroyAllWindows()
